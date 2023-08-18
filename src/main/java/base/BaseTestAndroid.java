@@ -31,11 +31,12 @@ public class BaseTestAndroid {
         properties.load(fileInputStream);
 
         String ip = properties.getProperty("ip");
-        String portString = properties.getProperty("port");
+        String portString = properties.getProperty("portAndroid");
         int port = Integer.parseInt(portString);
         String pathToMainJs = properties.getProperty("pathToMainJs");
         String pathToChromedriverExecutable = properties.getProperty("pathToChromedriverExecutable");
-        String browser = properties.getProperty("browser");
+        String browser = properties.getProperty("browserAndroid");
+        String platformVersion = properties.getProperty("androidPlatformVersion");
         String androidDeviceName = properties.getProperty("androidDeviceName");
         String androidDriverMachineUrl = properties.getProperty("androidDriverMachineUrl");
 
@@ -46,7 +47,7 @@ public class BaseTestAndroid {
         options.setDeviceName(androidDeviceName);
         options.setChromedriverExecutable(pathToChromedriverExecutable);
         options.setCapability("browserName", browser);
-        options.setCapability("platformVersion", "14");
+        options.setCapability("platformVersion", platformVersion);
         options.setCapability("newCommandTimeout", 300);
 
         driver = new AndroidDriver(new URL(androidDriverMachineUrl), options);

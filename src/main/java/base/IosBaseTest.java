@@ -30,6 +30,9 @@ public class IosBaseTest {
 
         String ip = properties.getProperty("ip");
         String portString = properties.getProperty("port");
+        String deviceName = properties.getProperty("appleDeviceName");
+        String browserName = properties.getProperty("browserApple");
+        String applePlatformVersion = properties.getProperty("applePlatformVersion");
         int port = Integer.parseInt(portString);
         String pathToMainJs = properties.getProperty("pathToMainJs");
         String androidDriverMachineUrl = properties.getProperty("androidDriverMachineUrl");
@@ -38,9 +41,9 @@ public class IosBaseTest {
         service.start();
 
         XCUITestOptions options = new XCUITestOptions();
-        options.setDeviceName("iPhone 14 Pro");
-        options.setCapability("browserName", "Safari");
-        options.setCapability("platformVersion", "16.4");
+        options.setDeviceName(deviceName);
+        options.setCapability("browserName", browserName);
+        options.setCapability("platformVersion", applePlatformVersion);
         options.setCapability("newCommandTimeout", 300);
 
         driver = new IOSDriver(new URL(androidDriverMachineUrl), options);
