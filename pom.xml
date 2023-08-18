@@ -32,6 +32,46 @@
       <version>4.11.0</version>
     </dependency>
   </dependencies>
+  <profiles>
+    <profile>
+      <id>Android</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.1.0</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>androidTest.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  <profile>
+    <id>Ios</id>
+    <build>
+      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <suiteXmlFiles>
+                <suiteXmlFile>iosTest.xml</suiteXmlFile>
+              </suiteXmlFiles>
+            </configuration>
+          </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
+  </profile>
+</profiles>
   <build>
     <plugins>
       <plugin>

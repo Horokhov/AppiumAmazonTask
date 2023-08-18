@@ -53,6 +53,7 @@ public class IosBaseTest {
     }
     public AmazonHomePage launchBrowserApplication(String url){
         driver.get(url);
+        driver.navigate().refresh();
         amazonHomePage = new AmazonHomePage(driver);
         return amazonHomePage;
     }
